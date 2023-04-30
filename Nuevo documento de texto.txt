@@ -1,0 +1,32 @@
+<!--> <nav class="navigation">
+
+            <ul>
+                <li><a href="#">Nuevos Ingresos</a></li>
+                <li><a href="#">Hombres</a></li>
+                <li><a href="#">Mujeres</a></li>
+                <li><a href="#">Niños</a></li>
+            </ul>
+        </nav> <!--> 
+
+.btn{
+    position: absolute;
+    right: 300px;
+    top: 0;
+    left: 300px;
+    width: 80px;
+    height: 80px;
+    background: blue;
+    line-height: 80px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s;
+
+}
+.btn i{
+    font-size: 25px;
+    color: white;
+    line-height: 80px;
+    transition: all .7s ease;
+
+}

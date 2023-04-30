@@ -1,0 +1,128 @@
+:root{/*selecciona elemento raiz del documento*/
+    --yellow: #FFA559;/*propiedad personalizada*/
+}
+
+*{
+    margin: 0; /*no da margen a la caja*/
+    padding: 0;/*no rellena la caja*/
+    box-sizing: border-box; /*para que las cajas no se salgan de su contenido*/
+    font-family: Verdana, Geneva, Tahoma, sans-serif;/*tipografia*/
+    outline: none;/*no da contorno a la caja*/
+    border: none;/*no da bordes a la caja*/
+    text-decoration: none;/*para no tener decoracion de texto*/
+    text-transform: capitalize;/*transformar las letras, con capitalize hacemos que sean las primeras letras en mayuscula*/
+    transition: .2s linear;/*transicion o mover levemente en linea todos los elementos*/
+    
+}
+
+html{
+    font-size: 70%;/*aplica a todo el contenido html la letra un 70%*/
+    scroll-behavior: smooth;/*Especifica el comportamiento del desplazamiento, smooth hace que la cajas se desplazen suavemente.*/
+    scroll-padding-top: 6rem;/*define desplazamientos a la parte superior asi colocar cosas a la vista del usuario*/
+    overflow-x: hidden;/*establece lo que se muestra cuando el contenido desborda(sobre sale) de los bordes izquierdo y derecho, con hidden no hay scroll, y recorta el contenido para que quepa horizontalmente*/
+}
+.about .row{
+    display: flex;/*cambia el comportamiento de las cajas a flex*/
+    align-items: center;/*centra las cajas segun su contenido tambien*/
+    gap: 2rem;/*un estilo padding, pero nos rellena columnas y filas*/
+    flex-wrap: wrap;/*nos permite que los elementos hijos permanezcan en una misma linea o puedan fluir en varias lineas*/
+    padding: 2rem 0;/*rella en eje y 2rem y 0 en el eje x*/
+    padding-bottom: 3rem;/*da un relleno de la parte de inferior de 3rem*/
+}
+.about .row .video-container{
+    flex: 1 1 40rem;/*propiedad resumida que indica la capacidad de un elemento flexible para alterar sus dimensiones y llenar el espacio disponible Tres valores: flex-grow | flex-shrink | flex-basis */
+    position: relative;/*puede estar como no estar la position, porque relative sin determinar ningun valor, es como static.*/
+}
+.about .row .video-container video{
+    width: 100%;/*ancho del 100% del video*/
+    border: 1.5rem solid #FFA559;/*borde de 1.5rem para hacer contorno, solido de colo*/
+    border-radius: .5rem;/*borde redondeado*/
+    box-shadow: 0 .5rem 1rem rgba(0,0,0.1);/*box shadow, añade aspecto de sombra al rededor del marco*/
+    height: 100%;/*altura del 100% del video*/
+    object-fit: cover;/*objec fit indica como el elemento reemplazado por img o video debe redimensionarse para ajustarse a la caja, con cover se recorta para que se ajuste en caso de que no coincida con la caja.*/
+}
+
+.about .row .content{
+    flex: 1 1 40rem;/*propiedad resumida que indica la capacidad de un elemento flexible para alterar sus dimensiones y llenar el espacio disponible Tres valores: flex-grow | flex-shrink | flex-basis */
+}
+.about .row .content h3{
+    font-size: 3rem;/*ajusta la letra del contenido h3*/
+    color: #333;/*da color*/
+}
+.about .row .content p{
+    font-size: 1,5rem;/*ajusta la letra del contenido p*/
+    color: #999;/*da color*/
+    padding: .5rem 0;/*rellena .5rem el eje y. y el eje x sin relleno*/
+    padding-top: 1rem;/*da relleno a la parte superior*/
+    line-height: 1.5;/*line height estable distancia entre lineas de texto*/
+}
+.heading{
+    text-align: center;/*El contenido en línea se centra dentro del cuadro de línea.*/
+    font-size: 4rem;/*ajusta el tamaño de la letra*/
+    color: #333;/*da color*/
+    padding: 1rem;/*rellena los 4 lados*/
+    margin: 2rem 0;/*da margen vertical, no da margen horizontal*/
+    background:  rgba(255,51,153, .05);/*fondo*/
+}
+.heading span{
+    color:var(--yellow);/*da color mediante var, que es una funcion que puede usada para insertar el valor de una propiedad personalizada(yellow en este caso)*/
+
+
+}
+@media (max-width:450px){/*cuando tiene maximo de 450px de ancho hace todo esto*/
+    html{
+       font-size: 45%;/*ajusta la letra un 45% del html*/
+   }
+   .heading{
+    font-size: 3rem;/*ajusta la letra del contenido clase heading*/
+
+   }
+}
+@media (max-width:768px){
+    header .fa-bars{
+        display: block;/*muestra las barras ocultas cuando hay un maximo de 768px de pantalla*/
+    }
+    
+    header .navbar{
+        position: absolute;/*se ubica segun su contenedor*/
+        top: 100%;/*dejo un espacio del 100% desde el margin del contenedor*/
+        left: 0;/*no dejo espacio de la izquierda*/
+        right: 0;/*no dejo espacio desde la derecha*/
+        background: #eee;/*fondo para todo el navbar*/
+        border-top: .1rem solid rgba(0,0,0,.1);/*borde arriba, solido de tal color*/
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);/*crea un recorte que establece que parte de un elemento muestra, es decir segun la figura muestra el contenido, en este caso es un poligono con sus medidas que ocultan el contenido de la barra de navegacion*/
+
+    }
+    header #toggler:checked ~ .navbar {/*con la pseudoclase checked permite activar el menu, y con "~" selecciona todos los elementos dentro de navbar*/  
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);/*creamos un poligono "cuadrado" y hacemos como el menu es una barra chica*/
+    }
+    
+    header .navbar a{
+        margin: 1.5rem;/*se establece el margen para los cuatros lado*/
+        padding: 1.5rem;/*relleno en los 4 lados*/
+        background: #fff;/*color de fondo*/
+        border: .1rem solid rgba(0,0,0,.1);/*borde solido depende color*/
+        display: block;/*se comporta como bloque es decir uno bajo el otro*/
+    }
+    .home .content h3{
+        font-size: 5rem;/*le da tamaño de 5 del elemento raiz al h3 segun el contenido de contenedor de home y content*/
+    }
+    .home .content span{
+        font-size: 2.5;/*da tamaño al elemento span dentro de home y content.*/
+    }
+    }
+
+@media (max-width:991px){
+    html{
+       font-size: 50%;/*ajusta la letra un 50% cuando hay un maximo de 991px de pantalla*/
+   }
+   header{
+       padding: 2rem;/*da relleno a los 4 lados  de las cajas en header*/
+   }
+   section{
+    padding: 2rem;/*da relleno a los 4 lados  de las cajas en section*/
+    }
+    .home{
+    background-position: left;/*establece la posicion inicial de la imagen de fondo*/
+    }
+}

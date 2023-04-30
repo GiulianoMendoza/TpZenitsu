@@ -1,0 +1,205 @@
+:root {
+    --yellow: #FFA559;
+}
+
+* {
+    margin: 0;
+    /*no da margen a la caja*/
+    padding: 0;
+    /*no rellena la caja*/
+    box-sizing: border-box;
+    /*para que las cajas no se salgan de su contenido*/
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /*tipografia*/
+    outline: none;
+    /*sin contorno la caja*/
+    border: none;
+    /*sin borde la caja*/
+    text-decoration: none;
+    /*para decorar el texto, pero en este caso para que no tenga efecto*/
+    text-transform: capitalize;
+    /*hace que todas las primeras letras sean mayuscula*/
+    transition: .2s linear;
+    /*hace una transicion leve en linea*/
+
+}
+
+html {
+    font-size: 70%;
+    /*hace que la letra tenga un 70% */
+    scroll-behavior: smooth;
+    /*Especifica el comportamiento del desplazamiento, smooth hace que la cajas se desplazen suavemente.*/
+    scroll-padding-top: 6rem;
+    /*define desplazamientos a la parte superior asi colocar cosas a la vista del usuario*/
+    overflow-x: hidden;
+    /*establece lo que se muestra cuando el contenido desborda(sobre sale) de los bordes izquierdo y derecho, con hidden no hay scroll, y recorta el contenido para que quepa horizontalmente*/
+}
+
+section {
+    padding: 2rem 9%;
+    /*rellena el eje y(arriba y abajo) con 2rem y el eje x(izquierda y derecha) un 9%*/
+}
+
+.btn {
+    display: inline-block;
+    /*hace que se comporte como un bloque en linea*/
+    margin-top: 1rem;
+    /*da 1 rem(es el tamaño de la letra del elemento raiz) al margen de arriba*/
+    border-radius: 5rem;
+    /*un borde redondo de 5 rem*/
+    background: #333;
+    /*fondo gris*/
+    color: #fff;
+    /*letra de color blanco*/
+    padding: .9rem 3.5rem;
+    /*rellena en eje y .9rem y en eje x 3.5rem*/
+    cursor: pointer;
+    /*cambia el cursor, o sea el mouse de flecha a manito*/
+    font-size: 1.7rem;
+    /*tamañao de letra a 1.7rem(es el tamaño de la letra del elemento raiz)*/
+}
+
+.btn:hover {
+    background: var(--yellow);
+    /* con la pseudoclase hover hacemos que cuando el mouse este por encima interactue, en este caso cambie de color*/
+}
+
+.home {
+    display: flex;
+    /*hace que las cajas sean flexibles*/
+    align-items: center;
+    /*centra las cajas segun su contenido tambien*/
+    min-height: 100vh;
+    /*define altura minima, vh es altura del dipositivo, es decir que 100vh es equivalente a 100%*/
+    background: url(Imagenes/r2.jpeg) no-repeat;
+    /*el elemento background permite valores como url para poner imagenes, donde no-repeat siginifca no replicar la imagen y solo utilizarla al 100%*/
+    background-size: cover;
+    /*especifica el tamaño de las imagenes de fondo, cover lleva la imagen al mayor tamaño posible, sin estirarla y recorta para que no quede espacios vacios*/
+    background-position: top center;
+    /*define la posicion de la imagen de fondo, center es centar.*/
+}
+
+.home .content {
+    max-width: 50rem;
+    /*ancho maximo 50rem(el tamaño de la letra del elemento raiz)*/
+}
+
+.home .content h3 {
+    font-size: 5.5rem;
+    /*ajusta la letra 6rem(el tamaño de la letra del elemento raiz)*/
+    color: #222;
+    /*da color*/
+}
+
+.home .content span {
+    font-size: 3.5rem;
+    /*ajusta la letra 3.5rem(el tamaño de la letra del elemento raiz)*/
+    color: var(--yellow);
+    /*da color mediante var, que es una funcion que puede usada para insertar el valor de una propiedad personalizada(yellow en este caso)*/
+    padding: 1rem 0;
+    /*rellena 1rem el eje y. y no da relleno al eje x*/
+    line-height: 1.5;
+    /*line height estable distancia entre lineas de texto*/
+}
+
+.home .content p {
+    font-size: 1.5rem;
+    /*ajusta la letra 1.5rem(el tamaño de la letra del elemento raiz)*/
+    color: #222;
+    /*da color*/
+    padding: 1rem 0rem;
+    /*rellena 1rem el eje y. y no da relleno al eje x*/
+    line-height: 1.5;
+    /*line height estable distancia entre lineas de texto*/
+}
+
+@media (max-width:450px) {
+
+    /*cuando tiene maximo de 450px de ancho hace todo esto*/
+    html {
+        font-size: 45%;
+        /*ajusta la letra un 45% del html*/
+    }
+
+    .heading {
+        font-size: 3rem;
+        /*ajusta la letra del contenido clase heading*/
+
+    }
+}
+
+@media (max-width:768px) {
+    header .fa-bars {
+        display: block;
+        /*muestra las barras ocultas cuando hay un maximo de 768px de pantalla*/
+    }
+
+    header .navbar {
+        position: absolute;
+        /*se ubica segun su contenedor*/
+        top: 100%;
+        /*dejo un espacio del 100% desde el margin del contenedor*/
+        left: 0;
+        /*no dejo espacio de la izquierda*/
+        right: 0;
+        /*no dejo espacio desde la derecha*/
+        background: #eee;
+        /*fondo para todo el navbar*/
+        border-top: .1rem solid rgba(0, 0, 0, .1);
+        /*borde arriba, solido de tal color*/
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        /*crea un recorte que establece que parte de un elemento muestra, es decir segun la figura muestra el contenido, en este caso es un poligono con sus medidas que ocultan el contenido de la barra de navegacion*/
+
+    }
+
+    header #toggler:checked~.navbar {
+        /*con la pseudoclase checked permite activar el menu, y con "~" selecciona todos los elementos dentro de navbar*/
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        /*creamos un poligono "cuadrado" y hacemos como el menu es una barra chica*/
+    }
+
+    header .navbar a {
+        margin: 1.5rem;
+        /*se establece el margen para los cuatros lado*/
+        padding: 1.5rem;
+        /*relleno en los 4 lados*/
+        background: #fff;
+        /*color de fondo*/
+        border: .1rem solid rgba(0, 0, 0, .1);
+        /*borde solido depende color*/
+        display: block;
+        /*se comporta como bloque es decir uno bajo el otro*/
+    }
+    .home .content h3 {
+        font-size: 5rem;
+        /*le da tamaño de 5 del elemento raiz al h3 segun el contenido de contenedor de home y content*/
+    }
+
+    .home .content span {
+        font-size: 2.5;
+        /*da tamaño al elemento span dentro de home y content.*/
+    }
+}
+
+@media (max-width:991px) {
+    html {
+        font-size: 50%;
+        /*ajusta la letra un 50% cuando hay un maximo de 991px de pantalla*/
+    }
+
+    header {
+        padding: 2rem;
+        /*da relleno a los 4 lados  de las cajas en header*/
+    }
+
+
+    section {
+        padding: 2rem;
+        /*da relleno a los 4 lados  de las cajas en section*/
+    }
+
+    .home {
+        background-position: left;
+        /*establece la posicion inicial de la imagen de fondo*/
+    }
+}

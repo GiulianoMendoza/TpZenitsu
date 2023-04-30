@@ -1,0 +1,142 @@
+:root{/*selecciona elemento raiz del documento*/
+    --yellow: #FFA559;
+}
+*{
+    margin: 0; /*Estabelecer margen de los 4 lados*/
+    padding: 0; /*Establece el area de relleno en 4 lados de un elemento a la vez*/ 
+    box-sizing: border-box; /*para que las cajas no se salgan de su contenido*/
+    font-family: Verdana, Geneva, Tahoma, sans-serif;/*tipografia*/
+    outline: none;/*para no darle contorno a los elemento*/
+    border: none;/*para que no se le haga borde a casa elemento*/
+    text-decoration: none; /*para decorar el texto, pero en este caso para que no tenga efecto*/
+    text-transform: capitalize;/*para hacer que el texto tenga la primer letra en mayuscula, capitaliza hace esto.*/
+    transition: .2s linear;/*permite la transicion entre 2 estados de un elemento*/
+    
+}
+
+html{
+    font-size: 70%;/*ajusta el texto un 70% */
+    scroll-behavior: smooth;/*Especifica el comportamiento del desplazamiento, smooth hace que la cajas se desplazen suavemente.*/
+    scroll-padding-top: 6rem;/*define desplazamientos a la parte superior asi colocar cosas a la vista del usuario*/
+    overflow-x: hidden;/*establece lo que se muestra cuando el contenido desborda(sobre sale) de los bordes izquierdo y derecho, con hidden no hay scroll, y recorta el contenido para que quepa horizontalmente*/
+
+}
+header{
+    position: fixed;/*establece como se coloca un elemento en un documento. fixed se coloca en relacion con el bloque de contencion, se apilan todo lo afectado*/
+    top: 0;/*especificacion de la posicion vertical de un elemento posicionado, como esta en 0 y la posicion es fixed, se adapta al borde superior del elemento y el borde interior del borde superior del bloque contenedor*/
+    left: 0;/*(izquierda)especificacion de la posicion horizontal de un elemento posicionado, como esta en 0 y la posicion es fixed, se adapta a la distancia entre el margen exterior del borde izquierdo y el borde interior del borde izquierdo del bloque contenedor*/
+    right: 0;/*(derecha) especificacion de la posicion horizontal de un elemento posicionado, como esta en 0 y la posicion es fixed, se adapta a la distancia entre el margen exterior del borde derecho y el borde interior del borde derecho del bloque contenedor*/
+    background: #fff;/*establece estilo de fondo*/
+    padding: 2rem;/*Establece la distancia(o relleno) de los 4 lados de un elemento*/
+    display: flex;/*para establecer como se comportara cada caja, si en bloque o en linea, en este caso usamos flex y se comporta como cajas en bloque una al lado de la otra*/
+    align-items: center;/*para controlar la alineacion de los elementos en el eje transversal, con center buscamos centrar el contenido dentro del eje*/
+    justify-content: space-between;/*define el explorador como distribuye el espacio entre y alrededor de los elementos de contenido a lo largo del eje principal*/
+    z-index: 1000;/*para superponer los elementos*/
+    box-shadow: 0 1rem #FFA559;/*para agregar efectos de sobra(una linea) alrededor del marco de un elemento en x, y, color*/
+}
+header input:hover{
+    color:var(--yellow);
+}
+
+header .logo{
+    font-size: 3rem; /*la medida rem es el tamaño de la letra del elemento*/
+    color: #333; /*color a la clase*/
+    font-weight: bolder;  /* especifica el grupo o espesor de la letra bolder corresponde a un tipo de fuente más gruesa que el tipo del elemento padre*/
+}   
+
+header .navbar a{
+    font-size: 2rem;/*le da 2rem a el contenido del nav con clase navbar y los elementos a*/
+    padding: 0 1.5rem;/*primer 0 rellena arriba y abajo(eje y) y el 1.5rem rellena los laterales(eje x)*/
+    color: #666;/*le doy color al contenido*/
+}
+
+header .navbar a:hover{
+    color:var(--yellow);/*da color al poner el mouse encima de los elementos a porque la pseudoclase hover*/
+}
+
+header .icons a{
+    font-size: 2.5rem;/*le da 2.5rem a el contenido dentro de la clase icons especificamente a los elementos a*/
+    color: #333;/*le da color a el contenido dentro de icons especificamente a los elementos a*/
+    margin-left: 1.5rem; /*para separar los iconos para la izquierda determinada distancia*/
+}
+
+header .icons a:hover{
+    color: var(--yellow);/*da color al poner el mouse sobre los elementos, por la pseudoclase hover*/
+}
+
+header #toggler{
+    display: none;/*el toggler es el elemento que permite "abrir el menu" en una pagina con menu, con display none le decimos que no se active con cierta medida*/
+}
+
+header .fa-bars{
+    display: none;/*para ocultar la clase fa-bars las lineas del menu y que se abra cuando se necesita*/
+    font-size: 3rem;/*para darle tamaño a esas bars*/
+    color: #333;/*color a las bars*/
+    border-radius: .5rem;/*borde redondito cuando se muestre*/
+    padding: .5rem 1.5rem;/*primer .5rem rellena arriba y abajo(eje y) y el 1.5rem rellena los laterales(eje x)*/
+    cursor: pointer;/*cambia el estilo del mouse a manito*/
+    border: .1rem solid rgba(0,0,0, .3); /*da borde solido de tal color*/
+
+}
+
+@media (max-width:450px){/*cuando tiene maximo de 450px de ancho hace todo esto*/
+    html{
+       font-size: 45%; /*ajusta la letra un 45% del html*/
+   }
+   .heading{
+    font-size: 3rem;/*ajusta la letra del contenido clase heading*/
+
+   }
+}
+
+@media (max-width:768px){
+    header .fa-bars{
+        display: block; /*muestra las barras ocultas cuando hay un maximo de 768px de pantalla*/
+    }
+
+    header .navbar{
+        position: absolute;/*se ubica segun su contenedor*/
+        top: 100%;/*dejo un espacio del 100% desde el margin del contenedor*/
+        left: 0;/*no dejo espacio de la izquierda*/
+        right: 0;/*no dejo espacio desde la derecha*/
+        background: #eee;/*fondo para todo el navbar*/
+        border-top: .1rem solid rgba(0,0,0,.1);/*borde arriba, solido de tal color*/
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);/*crea un recorte que establece que parte de un elemento muestra, es decir segun la figura muestra el contenido, en este caso es un poligono con sus medidas que ocultan el contenido de la barra de navegacion*/
+    }
+    
+    header #toggler:checked ~ .navbar {/*con la pseudoclase checked permite activar el menu, y con "~" selecciona todos los elementos dentro de navbar*/  
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);/*creamos un poligono "cuadrado" y hacemos como el menu es una barra chica*/
+    }
+    
+
+    header .navbar a{
+        margin: 1rem;/*se establece el margen para los cuatros lado*/
+        padding: 1.5rem;/*relleno en los 4 lados*/
+        background: #fff;/*color de fondo*/
+        border: .1rem solid rgba(0,0,0,.1);/*borde solido depende color*/
+        display: block;/*se comporta como bloque es decir uno bajo el otro*/
+
+    }
+    
+    .home .content h3{
+        font-size: 5rem;/*le da tamaño de 5 del elemento raiz al h3 segun el contenido de contenedor de home y content*/
+    }
+    .home .content span{
+        font-size: 2.5rem;/*da tamaño al elemento span dentro de home y content.*/
+    }
+}
+
+@media (max-width:991px){
+    html{
+       font-size: 50%;/*ajusta la letra un 50% cuando hay un maximo de 991px de pantalla*/
+   }
+   header{
+       padding: 2rem;/*da relleno a los 4 lados  de las cajas en header*/
+   }
+   section{
+    padding: 2rem;/*da relleno a los 4 lados  de las cajas en section*/
+    }
+    .home{
+    background-position: left;/*establece la posicion inicial de la imagen de fondo*/
+    }
+}

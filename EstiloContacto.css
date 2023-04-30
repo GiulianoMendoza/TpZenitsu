@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    background-image: linear-gradient(45deg, #FFA559 0%, #fadfcb 99%, #fadfcb 100%);
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+
+}
+.form{
+    
+    background-color: #fff;
+    width: 90%;
+    margin: auto;
+    max-width: 400px;
+    border-radius: 1rem;
+    padding: 3.5em 1.5em;
+}
+.form__container{
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    grid-auto-columns: 100%;
+}
+.form__title{
+    text-align: center;
+    font-size: 1.9em;
+    margin-bottom: .4em;
+}
+.form__input{
+    font-family: inherit;/*hereda la fuente*/
+    font-size: 1rem;
+    padding: .8em 1em;
+    outline: none;
+    border: none;
+    border: 1px solid #FFA559;
+    border-radius: 0.2rem;
+}
+.form__input--message{
+    resize: none;
+    padding: 1.8rem 1rem;
+    margin-bottom: .5rem;
+}
+.form__cta{
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: #FFA559;
+    color: #fff;
+    border: none;
+    font-weight: 400;
+    padding: .7em 0;
+    border-radius: .2em;
+    cursor: pointer;
+}
+@media (max-width:450px){
+    .form{
+        padding: 3.5em 1rem;
+    }
+}
+@media (max-width:768px){
+    .form{
+        padding: 3.5em 1.2rem;
+    }
+}
+@media (max-width:991px){
+    .form{
+        padding: 3.5em 1.5rem;
+    }
+}
